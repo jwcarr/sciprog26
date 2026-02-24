@@ -1,8 +1,10 @@
 # Scientific Programming: A Crash Course
 
-Welcome to this course on Scientific Programming. My name is [Jon Carr](https://joncarr.net). I am currently a software developer, but I used to be a postdoc in Davide Crepaldi’s lab at SISSA. I will be your guide to programming over this week-long course. I look forward to meeting you all soon!
+Welcome to this course on Scientific Programming. My name is Jon Carr. I am currently a software developer, but I used to be a postdoc in Davide Crepaldi’s lab at SISSA. I will be your guide to programming over this week-long course. I look forward to meeting you all soon!
 
 This is a one-week intensive course, which will run daily **from Monday 2nd to Friday 6th March 2026**. Although I will do a little bit of lecturing, the course will mostly be very interactive with lots of practical exercises and independent working. It is therefore important that **you bring a laptop computer with you**.
+
+The class with take place in **Room 139** on the first floor. Before attending the first class, please try to get your computer set up with the relevant software (see below).
 
 
 ## General information
@@ -26,7 +28,7 @@ If you already have some programming experience, you can still take part in this
 
 ### Advanced programmers
 
-If you’re an advanced programmer, then this is probably not the right course for you. Nevertheless, you may enjoy the final lecture on Friday where I will talk about good coding practices in science.
+If you’re an advanced programmer, then this is probably not the right course for you. However, even if you don’t attend the main course, you can still attend the final lecture on Friday at 16:00, where I will discuss good coding practices in science (see below for more details).
 
 
 ## Syllabus
@@ -45,9 +47,9 @@ This class will cover the basics of programming, including core data types (numb
 
 In this unit we will learn how to program more effectively by taking advantage of functions. Optionally, you can also stick around for the bonus unit on object-oriented programming, which covers more advanced types of abstraction.
 
-### 3. Good Housekeeping
+### 3. Data Management
 
-Here we will cover some important – but slightly more general – concepts: Reading and writing data, file paths, handling errors, organization, and working with the terminal.
+Here we will cover several concepts in managing data, including: Reading and writing to data files, file paths, handling errors, databases, and general organization.
 
 ### 4. The Scientific Stack
 
@@ -61,15 +63,15 @@ In the last module, we will look at how to produce attractive and informative vi
 
 In this final lecture, I will speak on the theme of good practices in scientific programming. This lecture is open to anyone at SISSA, even if you didn’t follow the main course. Topics will include:
 
-- Open-source
-- Open-access
 - Reproducibility
 - Version control
-- Virtual environments
 - Documentation
-- Code review
 - Style and code formatting
-- Unit testing and coverage
+- Open source
+- Unit testing
+- Virtual environments
+- Code review
+- Coding with AI
 
 
 ## Bonus units
@@ -91,13 +93,18 @@ In this class, I will give you some tips on how to scale up your code for high-p
 
 ## Software Installation
 
-Before attending the first class, please try to get your computer set up with a working Python installation and the Jupyter Notebook package. Sometimes it can be tricky to get things set up correctly, but I will be available to help you during the first class in case of any problems.
+Before attending the first class, please try to get your computer set up with a working Python installation and the Jupyter Notebook package. Sometimes it can be tricky to get things set up correctly, so don’t worry if you have difficulties – I will be available to help during the first class.
 
-The easiest way to install everything is to use Anaconda: https://www.anaconda.com/download This is a special distribution of Python that includes many of the packages we will need, including Jupyter Notebook. When you click the link above, it asks for an email address, but you can just click the "Skip registration" link. Then, download and install the Anaconda Distribution for your platform. It is also possible to install Miniconda instead, but this will require you to install the packages manually, so it's usually easier to install the main Anaconda distribution.
+The easiest way to install everything is to use Anaconda: https://www.anaconda.com/download/success This is a special distribution of Python that includes many of the packages we will need, including Jupyter Notebook. You should download and install the **Anaconda Distribution** for your platform.
 
-### Alternative installation options
+It is also possible to install Miniconda instead, but this will require you to install all the packages manually, so it’s usually easier to install the main Anaconda distribution.
 
-The Anaconda distribution is quite large, so if you prefer to be more minimalist, another alternative option is to install the official "vanilla" version of Python: https://www.python.org However, I would only recommend this option if you are reasonably familiar with the command line. Once Python is installed, you will then need to install the required packages by running this command:
+
+## Alternative installation options (advanced)
+
+The Anaconda distribution is quite large, so if you prefer to be more minimalist, an alternative option is to install the official "vanilla" version of Python (https://www.python.org) or to use a tool like UV (https://docs.astral.sh/uv/). However, I would only recommend these options if you are reasonably familiar with the command line.
+
+Once you have installed Python, you will then need to install the required packages by running this command:
 
 ```bash
 pip install -r requirements.txt
@@ -114,16 +121,12 @@ If you use Linux or Mac, Python is installed by default as part of the operating
 If you go down the route of installing Python manually (rather than using Anaconda), I would suggest you first create a new virtual environment, so that the packages you install do not conflict with other stuff you might be doing:
 
 ```bash
-mkdir sciprog23
-cd sciprog23
+mkdir sciprog26
+cd sciprog26
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 jupyter notebook
 ```
 
-If this looks a bit scary, don’t worry, I can help in class.
-
-### Last resort: Web version
-
-Finally, if you encounter major issues getting stuff installed, you can also use the web version of Jupyter Notebook from here: https://jupyter.org/try This is not a good long-term solution, but you will at least be able to follow along with the course.
+If you would like some advice on these more technical methods for installing and managing Python, please feel free to ask in class.
