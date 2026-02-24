@@ -2,7 +2,7 @@
 
 Welcome to this course on Scientific Programming. My name is Jon Carr. I am currently a software developer, but I used to be a postdoc in Davide Crepaldi’s lab at SISSA. I will be your guide to programming over this week-long course. I look forward to meeting you all soon!
 
-This is a one-week intensive course, which will run daily **from Monday 2nd to Friday 6th March 2026**. Although I will do a little bit of lecturing, the course will mostly be very interactive with lots of practical exercises and independent working. It is therefore important that **you bring a laptop computer with you**.
+This is a one-week intensive course, which will run daily **from Monday 2nd to Friday 6th March 2026 (14:00–17:00)**. Although I will do a little bit of lecturing, the course will mostly be very interactive with lots of practical exercises and independent working. It is therefore important that **you bring a laptop computer with you**.
 
 The class with take place in **Room 139** on the first floor. Before attending the first class, please try to get your computer set up with the relevant software (see below).
 
