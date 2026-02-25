@@ -396,19 +396,6 @@ _unit3_questions = [
     </div>
     """,
 
-    r"""
-    <div id="question-UNIT_NUMBER-QUESTION_NUMBER">
-        <p>Given the Trieste text above, how many substrings match the regex pattern <code>20\d\d?</code>?</p>
-        <p><label><input type="radio" name="answer-UNIT_NUMBER-QUESTION_NUMBER" value="a"> 1</label></p>
-        <p><label><input type="radio" name="answer-UNIT_NUMBER-QUESTION_NUMBER" value="b"> 2</label></p>
-        <p><label><input type="radio" name="answer-UNIT_NUMBER-QUESTION_NUMBER" value="c"> 3</label></p>
-        <p><label><input type="radio" name="answer-UNIT_NUMBER-QUESTION_NUMBER" value="d"> 4</label></p>
-        <p><button id="button-UNIT_NUMBER-QUESTION_NUMBER" onclick="submitAnswer_UNIT_NUMBER_QUESTION_NUMBER()">Submit</button></p>
-        <p id="response-message-UNIT_NUMBER-QUESTION_NUMBER"></p>
-        <hr />
-    </div>
-    """,
-
 ]
 
 _unit4_questions = [
