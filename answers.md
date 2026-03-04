@@ -309,3 +309,115 @@ def sum3(nums, total=0):
     return sum3(nums[1:], total + nums[0])
 ```
 
+
+Unit 3
+======
+
+Question 1
+----------
+
+Why do we open a file using a with-statement (context manager)?
+
+- [ ] A with-statement is required for file system access.
+- [x] When we exit the with-statement, the file is closed automatically.
+- [ ] With statements allow us to iterate over the lines inside a file.
+
+
+Question 2
+----------
+
+What kind of data is suitable for storing in a CSV file?
+
+- [ ] Hierarchically nested data.
+- [ ] Binary data, such as EEG recordings.
+- [x] Any kind of data that can be arranged in a table.
+- [ ] Any kind of data.
+
+
+Question 3
+----------
+
+What kind of data is suitable for storing in a JSON file?
+
+- [x] Hierarchically nested data.
+- [ ] Binary data, such as EEG recordings.
+- [ ] Any kind of data that can be arranged in a table.
+- [ ] Any kind of data.
+
+
+Question 4
+----------
+
+Given the example project organization I showed above, how would analysis.py access the experiment 2 data file?
+
+- [ ] `'data/exp2/data.csv'`
+- [ ] `'data/exp2_data.csv'`
+- [ ] `'exp2/data.csv'`
+- [ ] `Path('..') / 'data' / 'exp2_data.csv'`
+- [ ] `Path('data') / 'exp2' / 'data.csv'`
+- [x] `Path('..') / 'data' / 'exp2' / 'data.csv'`
+
+
+Question 5
+----------
+
+What is the result of `[letter.upper() for letter in "hello"]`?
+
+- [ ] `'HELLO'`
+- [ ] `'Hello'`
+- [x] `['H', 'E', 'L', 'L', 'O']`
+- [ ] `['HELLO']`
+- [ ] `None`
+
+
+Question 6
+----------
+
+Which is these statements is false?
+
+- [ ] In Python, variables can change type.
+- [x] If a variable is annotated as an `int`, it is not allowed to be any other type.
+- [ ] Python is a dynamically-typed language.
+- [ ] Type hints are optional in Python.
+
+
+Question 7
+----------
+
+In what situation would you use Python's try/except feature?
+
+- [ ] To make sure that a chunk of code won't crash.
+- [x] To take corrective action if a particular type of error occurs.
+- [ ] To alert the user to a potential issue in the code.
+
+
+ASCII art exercise
+------------------
+
+Here's one way to convert an image into ASCII art:
+
+```python
+from  PIL import Image
+
+characters_ordered_by_darkness = r"@B%8&WM#oahkbdpqwmZO0QLCJUYXzcvunxrjft/()1{}[]?-+~<>i!lI;:,^`'. "
+
+def convert_image_to_ascii(image_file: str, output_width: int) -> str:
+    image = Image.open(image_file)
+    grayscale_image = image.convert("L")
+    aspect_ratio = grayscale_image.height / grayscale_image.width
+    output_height = int(output_width * aspect_ratio * 0.5)
+    resized_image = grayscale_image.resize((output_width, output_height))
+    pixels = resized_image.getdata()
+    output_string = ""
+    for pixel_index, pixel in enumerate(pixels, 1):
+        mapped_character_index = pixel // (256 // len(characters_ordered_by_darkness))
+        mapped_character = characters_ordered_by_darkness[mapped_character_index]
+        output_string += mapped_character
+        if (pixel_index % output_width) == 0:
+            output_string += "\n"
+    return output_string
+
+ascii_image = convert_image_to_ascii("dog.jpg", output_width=100)
+print(ascii_image)
+```
+
