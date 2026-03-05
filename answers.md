@@ -421,3 +421,133 @@ ascii_image = convert_image_to_ascii("dog.jpg", output_width=100)
 print(ascii_image)
 ```
 
+
+Unit 4
+======
+
+Question 1
+----------
+
+What is the result of `np.array([1, 2, 3]) ** 2`?
+
+- [x] `array([1, 4, 9])`
+- [ ] `array([2, 4, 6])`
+- [ ] `6`
+- [ ] `12`
+
+
+Question 2
+----------
+
+What is the result of `np.ones(10) * np.zeros(10)`?
+
+- [ ] `0`
+- [ ] `100`
+- [ ] `array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])`
+- [x] `array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])`
+
+
+Question 3
+----------
+
+What is the result of `np.arange(10)[5:]`?
+
+- [ ] `array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])`
+- [ ] `array([5, 6, 7, 8, 9, 10])`
+- [x] `array([5, 6, 7, 8, 9])`
+- [ ] `array([6, 7, 8, 9])`
+
+
+Question 4
+----------
+
+What is the result of `np.log2([2, 4, 8, 16, 32, 64])`?
+
+- [ ] `array([2., 4., 8., 16., 32., 64.])`
+- [ ] `array([2., 4., 6., 8., 10., 12.])`
+- [x] `array([1., 2., 3., 4., 5., 6.])`
+
+
+Question 5
+----------
+
+What is the correlation coefficient if we reverse the happiness-level data using `my_happiness_level_reversed = list(reversed([80, 50, 60, 55, 60, 99, 85]))`?
+
+- [ ] 0.9315420132168272
+- [ ] -0.9315420132168272
+- [x] -0.2772306621931542
+- [ ] Approximately 0.0
+
+
+Question 6
+----------
+
+Which statement is correct?
+
+- [ ] Kmeans clustering looks for correlations in a dataset to create clusters.
+- [x] Kmeans clustering finds a set of clusters that minimize the average distance between cluster members.
+- [ ] Kmeans clustering uses the mean value of a dataset to identify outliers.
+
+
+Question 7
+----------
+
+Functions are usually followed by parentheses, so, in the code above, why do we write `minimize(good_icecream, 0.5)` rather than `minimize(good_icecream<strong><u>()</u></strong>, 0.5)`?
+
+- [ ] We don't need to use parentheses because the `good_icecream` function does not have any inputs initially.
+- [ ] `good_icecream` is being used as a string in this scenario.
+- [x] This allows us to pass the `good_icecream` function into the `minimize` function, rather than the function's return value.
+
+
+Question 8
+----------
+
+What was the mean accuracy of all the subjects who were in the "size" condition?
+
+- [ ] 54%
+- [x] 68%
+- [ ] 72%
+- [ ] 86%
+
+
+Icecream exercise
+-----------------
+
+Here's one way to print out which flavors are good and which are bad based on the results of the cluster analysis.
+
+```python
+from scipy.cluster.vq import kmeans2
+import numpy as np
+
+def print_good_or_bad(flavors, centroids, clusters):
+    index_of_bad_cluster = np.argmin(centroids)
+    for flavor, cluster_index in zip(flavors, clusters):
+        if cluster_index == index_of_bad_cluster:
+            print(f'{flavor} is bad')
+        else:
+            print(f'{flavor} is good')
+
+flavors = ['banana','bubblegum','butterscotch','cherry','chocolate','coffee','mango','mint','pistachio','raspberry','vanilla','watermelon']
+centroids, clusters = kmeans2(icecream_rankings, 2)
+print_good_or_bad(flavors, centroids, clusters)
+```
+
+Leap year exercise
+------------------
+
+Here's one way to account for leap years in the birthday-paradox simulation.
+
+```python
+def generate_birthdays(n_people):
+    birthdays = []
+    for _ in range(n_people):
+        if np.random.random() < 0.25:
+            # this person was born in a leap year
+            # so there are 366 possible days
+            birthdays.append( np.random.randint(1, 367) )
+        else:
+            # regular year: 365 possible days
+            birthdays.append( np.random.randint(1, 366) )
+    return birthdays
+```
+
