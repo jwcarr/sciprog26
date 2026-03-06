@@ -551,3 +551,110 @@ def generate_birthdays(n_people):
     return birthdays
 ```
 
+
+Unit 5
+======
+
+Question 1
+----------
+
+In the above code, why is there a `1` in  `np.polyfit(x, y, 1)`?
+
+- [ ] The `1` instructs matplotlib to plot just one line.
+- [x] The `1` instructs the `polyfit` function to compute a 1st degree polynomial (a.k.a., a linear regression line).
+- [ ] The `1` is used as an initial seed value in the line fitting algorithm.
+
+
+Question 2
+----------
+
+When should you use a scatter plot and when should you use a line plot?
+
+- [ ] Scatter plots are better for ordered data on one dimension.
+- [ ] Scatter plots are better for ordered data on two dimensions.
+- [ ] Scatter plots are better for unordered data on one dimension.
+- [x] Scatter plots are better for unordered data on two dimensions.
+
+
+Question 3
+----------
+
+Considering only the participants who learned the "angle" system in the comprehension condition, what was the accuracy score of the worst-performing participant?
+
+- [ ] 11%
+- [ ] 19%
+- [ ] 22%
+- [x] 23%
+
+
+Question 4
+----------
+
+How many subjects are there in total?
+
+- [ ] 20
+- [ ] 40
+- [x] 80
+
+
+Question 5
+----------
+
+How many conditions are there?
+
+- [ ] 1
+- [x] 2
+- [ ] 4
+
+
+Question 6
+----------
+
+How many trials did each subject do?
+
+- [x] Between 10 and 64
+- [ ] 43
+- [ ] 64
+- [ ] 100
+
+
+Question 7
+----------
+
+What does the `gaussian_kde.pdf()` method do?
+
+- [ ] It creates the plot in PDF format so that we can easily add it to a paper.
+- [x] It calculates the probability density function over the possible x values.
+- [ ] It calculates the probability density function over the subjects.
+
+
+Dataset 2: Plotting individual subjects 
+---------------------------------------
+
+Here's how you can extend the provided code to print distribution curves for each subject.
+
+```python
+from scipy.stats import gaussian_kde
+
+x = np.linspace(0, 252, 1000)
+
+left_df = df.query('condition=="left"')
+right_df = df.query('condition=="right"')
+
+for subject_id, landing_positions in left_df.groupby('subject')['landing_position']:
+    y = gaussian_kde(landing_positions).pdf(x)
+    plt.plot(x, y, color='cadetblue', alpha=0.5)
+    
+for subject_id, landing_positions in right_df.groupby('subject')['landing_position']:
+    y = gaussian_kde(landing_positions).pdf(x)
+    plt.plot(x, y, color='crimson', alpha=0.3)
+    
+plt.xlabel('Landing position (in pixels)')
+plt.xlim(0, 252)
+x_ticks = []
+for boundary in range(0, 253, 36):
+    plt.axvline(boundary, color='lightgray', zorder=0)
+    x_ticks.append(boundary)
+plt.xticks(x_ticks);
+plt.yticks([]);
+```
